@@ -1,28 +1,32 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export default function TeacherDashboard() {
-
   const [data] = useState({
     gotIt: 60,
     sortOf: 25,
-    lost: 15
+    lost: 15,
   });
 
   const [questions] = useState([
     { text: "What is a variable?", count: 8, priority: "High" },
-    { text: "Repeat example", count: 3, priority: "Normal" }
+    { text: "Repeat example", count: 3, priority: "Normal" },
   ]);
 
   return (
     <SafeAreaProvider>
-      <ScrollView 
+      <ScrollView
         style={styles.container}
         contentContainerStyle={{ paddingBottom: 40 }}
         showsVerticalScrollIndicator={false}
       >
-
         {/* HEADER */}
         <Text style={styles.title}>ClassPulse Dashboard</Text>
         <Text style={styles.sub}>Total: 28 Students</Text>
@@ -38,7 +42,8 @@ export default function TeacherDashboard() {
         <View style={styles.aiCard}>
           <Text style={styles.aiTitle}>AI Suggestion</Text>
           <Text style={styles.aiText}>
-            Most students are following. Clarify variable scoping for better understanding.
+            Most students are following. Clarify variable scoping for better
+            understanding.
           </Text>
         </View>
 
@@ -57,7 +62,7 @@ export default function TeacherDashboard() {
             </View>
 
             <TouchableOpacity style={styles.answerBtn}>
-              <Text style={{ color: 'white' }}>Answer</Text>
+              <Text style={{ color: "white" }}>Answer</Text>
             </TouchableOpacity>
           </View>
         ))}
@@ -73,26 +78,30 @@ export default function TeacherDashboard() {
         <TouchableOpacity style={styles.endBtn}>
           <Text style={styles.endText}>End Session</Text>
         </TouchableOpacity>
-
       </ScrollView>
     </SafeAreaProvider>
   );
 }
 
-
 // 🔥 PROGRESS BAR
 function ProgressBar({ label, value, color }) {
   return (
     <View style={{ marginBottom: 15 }}>
-      <Text style={styles.barLabel}>{label} ({value}%)</Text>
+      <Text style={styles.barLabel}>
+        {label} ({value}%)
+      </Text>
 
       <View style={styles.barBg}>
-        <View style={[styles.barFill, { width: `${value}%`, backgroundColor: color }]} />
+        <View
+          style={[
+            styles.barFill,
+            { width: `${value}%`, backgroundColor: color },
+          ]}
+        />
       </View>
     </View>
   );
 }
-
 
 // 🔥 STAT BOX
 function Stat({ label, value }) {
@@ -104,148 +113,147 @@ function Stat({ label, value }) {
   );
 }
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F8F9FB',
-    padding: 20
+    backgroundColor: "#F8F9FB",
+    padding: 20,
   },
 
   title: {
     fontSize: 24,
-    fontWeight: 'bold',
-    color: '#000066'
+    fontWeight: "bold",
+    color: "#000066",
   },
 
   sub: {
-    color: '#555',
-    marginBottom: 20
+    color: "#555",
+    marginBottom: 20,
   },
 
   card: {
-    backgroundColor: 'white',
+    backgroundColor: "white",
     padding: 20,
     borderRadius: 15,
     marginBottom: 20,
-    elevation: 3
+    elevation: 3,
   },
 
   barLabel: {
-    color: '#333',
+    color: "#333",
     marginBottom: 5,
-    fontWeight: '600'
+    fontWeight: "600",
   },
 
   barBg: {
     height: 8,
-    backgroundColor: '#E5E7EB',
-    borderRadius: 10
+    backgroundColor: "#E5E7EB",
+    borderRadius: 10,
   },
 
   barFill: {
     height: 8,
-    borderRadius: 10
+    borderRadius: 10,
   },
 
   aiCard: {
-    backgroundColor: '#EEF2FF',
+    backgroundColor: "#EEF2FF",
     padding: 15,
     borderRadius: 12,
-    marginBottom: 20
+    marginBottom: 20,
   },
 
   aiTitle: {
-    color: '#4338CA',
-    fontWeight: 'bold'
+    color: "#4338CA",
+    fontWeight: "bold",
   },
 
   aiText: {
-    color: '#333',
-    marginTop: 5
+    color: "#333",
+    marginTop: 5,
   },
 
   sectionTitle: {
     fontSize: 18,
-    fontWeight: 'bold',
-    color: '#000066',
-    marginBottom: 10
+    fontWeight: "bold",
+    color: "#000066",
+    marginBottom: 10,
   },
 
   questionCard: {
-    flexDirection: 'row',
-    backgroundColor: 'white',
+    flexDirection: "row",
+    backgroundColor: "white",
     padding: 15,
     borderRadius: 12,
     marginBottom: 10,
-    alignItems: 'center',
-    elevation: 2
+    alignItems: "center",
+    elevation: 2,
   },
 
   countBox: {
     width: 40,
     height: 40,
-    backgroundColor: '#000066',
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: "#000066",
+    justifyContent: "center",
+    alignItems: "center",
     borderRadius: 8,
-    marginRight: 10
+    marginRight: 10,
   },
 
   count: {
-    color: 'white',
-    fontWeight: 'bold'
+    color: "white",
+    fontWeight: "bold",
   },
 
   qText: {
-    color: '#111',
-    fontWeight: 'bold'
+    color: "#111",
+    fontWeight: "bold",
   },
 
   qSub: {
-    color: '#666',
-    fontSize: 12
+    color: "#666",
+    fontSize: 12,
   },
 
   answerBtn: {
-    backgroundColor: '#22C55E',
+    backgroundColor: "#22C55E",
     padding: 10,
-    borderRadius: 8
+    borderRadius: 8,
   },
 
   statsRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginVertical: 20
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginVertical: 20,
   },
 
   statBox: {
-    backgroundColor: 'white',
+    backgroundColor: "white",
     padding: 12,
     borderRadius: 10,
-    width: '30%',
-    elevation: 2
+    width: "30%",
+    elevation: 2,
   },
 
   statLabel: {
-    color: '#777',
-    fontSize: 10
+    color: "#777",
+    fontSize: 10,
   },
 
   statValue: {
-    color: '#000066',
-    fontWeight: 'bold'
+    color: "#000066",
+    fontWeight: "bold",
   },
 
   endBtn: {
-    backgroundColor: '#EF4444',
+    backgroundColor: "#EF4444",
     padding: 15,
     borderRadius: 12,
-    alignItems: 'center'
+    alignItems: "center",
   },
 
   endText: {
-    color: 'white',
-    fontWeight: 'bold'
-  }
+    color: "white",
+    fontWeight: "bold",
+  },
 });
